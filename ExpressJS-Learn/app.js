@@ -2,16 +2,20 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+//gunakan ejs
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  //res.sendFile("./index.html", { root: __dirname });
+  res.render("index", { nama: "John Tri Putra" });
 });
 
 app.get("/about", (req, res) => {
-  res.send("Ini halaman about");
+  res.render("about");
 });
 
-app.get("/contacts", (req, res) => {
-  res.send("Hello World!");
+app.get("/contact", (req, res) => {
+  res.render("contact");
 });
 
 app.use("/", (req, res) => {
